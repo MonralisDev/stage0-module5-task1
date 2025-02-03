@@ -11,7 +11,7 @@ public class ArrayTasks {
      * Return a String[] array that will list all the seasons of the year, starting with winter.
      */
     public String[] seasonsArray() {
-
+        return new String[]{"Winter", "Spring", "Summer", "Autumn"};
     }
 
     /**
@@ -25,7 +25,11 @@ public class ArrayTasks {
      * length = 5  -> [1, 2, 3, 4, 5]
      */
     public int[] generateNumbers(int length) {
-
+        int[] numbers = new int[length];
+        for (int i = 0; i < length; i++) {
+            numbers[i] = i + 1;
+        }
+        return numbers; // ✅ Повертаємо створений масив
     }
 
     /**
@@ -37,7 +41,11 @@ public class ArrayTasks {
      * arr = [5, -3, -4] -> sum = -2
      */
     public int totalSum(int[] arr) {
-
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
     }
 
     /**
@@ -50,7 +58,12 @@ public class ArrayTasks {
      * arr = [5, -3, -4],   number = 10    ->  -1
      */
     public int findIndexOfNumber(int[] arr, int number) {
-
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == number) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -63,7 +76,11 @@ public class ArrayTasks {
      * arr = ["pineapple", "apple", "pen"] -> ["pen", "apple", "pineapple"]
      */
     public String[] reverseArray(String[] arr) {
-
+        String[] reversedArr = new String[arr.length]; // Створюємо новий масив
+        for (int i = 0; i < arr.length; i++) {
+            reversedArr[i] = arr[arr.length - 1 - i]; // Записуємо у зворотному порядку
+        }
+        return reversedArr; // Повертаємо новий масив
     }
 
     /**
@@ -78,7 +95,28 @@ public class ArrayTasks {
      * arr = [1, 2]         -> [1, 2]
      */
     public int[] getOnlyPositiveNumbers(int[] arr) {
+        int count = 0;
 
+        // 1. Рахуємо, скільки позитивних чисел у масиві
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) {
+                count++;
+            }
+        }
+
+        // 2. Створюємо новий масив потрібного розміру
+        int[] newArr = new int[count];
+
+        // 3. Заповнюємо його позитивними числами
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) {
+                newArr[index] = arr[i]; // Додаємо у новий масив
+                index++; // Зсуваємо індекс вперед
+            }
+        }
+
+        return newArr; // 4. Повертаємо новий масив
     }
 
     /**
@@ -92,6 +130,6 @@ public class ArrayTasks {
      * arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
     public int[][] sortRaggedArray(int[][] arr) {
-
+        
     }
 }
